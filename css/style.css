@@ -1286,6 +1286,9 @@ figure.highlight,
   margin: 1.1em 0 0 2em;
   padding: 0.7em 0.7em 0 0.7em;
   max-width: 40%;
+  position: fixed;
+  right: 0;
+  top: 20%;
   /* position: fixed;
   margin-left: -340px;
   overflow: scroll; */ }

@@ -1,0 +1,510 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title> | Awoke</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/7.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">Awoke</h1><a id="logo" href="/.">Awoke</a><p class="description">记录下dq学习的点滴</p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a></div></div><div id="layout" class="pure-g"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title"></h1><div class="post-meta">Nov 2, 2017</div><div class="post-content">/* {
+    // 1. 定义方式
+    let id = Symbol('id');
+
+    let user = {
+        name: 'jack',
+        [id]: 123 // symbol类型
+    }
+
+    // 2. Symbol 被 for…in 忽略
+
+    // 3. Symbol.for, 读取定义的Symbol
+    let id1 = Symbol.for("id");
+    let id2 = Symbol.for("id");
+
+    // true
+    console.log(id1 === id2)
+
+    // 4. Symbol.keyFor, 获取Symbol名字
+    console.log(Symbol.keyFor(id2)) // 
+} */
+
+/* {
+    // typeof 能打印出 undefined、stirng、number、boolean、object、function
+    console.log(typeof undefined) // undefined
+    console.log(typeof 'str') // string
+    console.log(typeof 2) // number
+    console.log(typeof true) // boolean
+    console.log(typeof {}) // object
+    console.log(typeof []) // object
+    console.log(typeof null) // object
+    console.log(typeof console.log) // function
+} */
+
+/* {
+    // === 和 ==
+    // 何时用 ==
+    let obj = {};
+    if (obj.a == null) {
+        // 这里相当于 obj.a === null || obj.a === undefined 的简写形式，jquery 源码中推荐的写法
+    }
+
+} */
+
+/* {
+    var obj = {}; obj.a = 100;
+    var arr = []; arr.a = 100;
+    function fn() { }; fn.a = 100;
+
+    console.log(obj.__proto__) // {}
+    console.log(arr.__proto__) // []
+    console.log(fn.__proto__) // [Function]
+
+    console.log(fn.prototype) // fn {}
+    console.log(obj.__proto__ === Object.prototype)
+} */
+
+/* {
+    function Foo(name, age) {
+        this.name = name
+    }
+    Foo.prototype.alertName = function () {
+        console.log(this.name + ' alert')
+    }
+    var f = new Foo('zs')
+    f.printName = function () {
+        console.log(this.name + ' print')
+    }
+    f.printName() // zs print
+    f.alertName() // zs alert
+
+    console.log(f.__proto__ === Foo.prototype)
+
+    for (var item in f) {
+        if (f.hasOwnProperty(item)) {
+            console.log(item) // name printName
+        }
+    }
+} */
+/* 
+{
+    function Foo(name, age) {
+        this.name = name
+    }
+    Foo.prototype.alertName = function () {
+        console.log(this.name + ' alert')
+    }
+    var f = new Foo('zs')
+    f.printName = function () {
+        console.log(this.name + ' print')
+    }
+    f.printName() // zs print
+    f.alertName() // zs alert
+
+    f.toString()
+    console.log(f.__proto__.__proto__ === Object.prototype) // true
+
+    console.log(Foo.prototype.__proto__ === Object.prototype)
+
+    console.log(f instanceof Object)
+}
+
+{
+    console.log({} instanceof Object)
+} */
+
+/* {   // 动物
+    function Animal(){
+        this.eat = function(){
+            console.log('animal eat')
+        }
+    }
+
+    // 狗
+    function Dog(){
+        this.bark = function(){
+            console.log('dog bark')
+        }
+    }
+
+    Dog.prototype = new Animal()
+    var hashiqi = new Dog
+
+    hashiqi.eat() // animal eat，本身没有eat  
+} */
+
+/* {
+    function Foo(name, age) {
+        this.name = name;
+        this.age = age;
+        this.class = 'class-1'
+        // return this 默认有这一行
+    }
+    var f = new Foo('zs', 20);
+    var f1 = new Foo('lisi', 22);
+} */
+
+/* {
+    function Elem(id) {
+        this.elem = document.getElementById(id)
+    }
+
+    Elem.prototype.html = function (val) {
+        var elem = this.elem;
+        if (val) {
+            elem.innerHTML = val
+            return this // 链式调用
+        } else {
+            return elem.innerHTML
+        }
+    }
+
+    Elem.prototype.on = function (type, fn) {
+        var elem = this.elem
+        elem.addEventListener(type, fn)
+    }
+
+    var div1 = new Elem('div1')
+    // console.log(div1.html())
+    div1.html('<p>hello</p>')
+    div1.on('click', function(){
+        console.log('clicked')
+    })
+} */
+
+/* {
+    console.log(a); // undefined 
+    var a = 100;
+
+    fn('zs');
+
+    function fn(name){
+        console.log(this) // Window 或者 global
+        console.log(arguments); // { '0': 'zs' }
+
+        age = 20;
+        console.log(name, age); // zs 20
+        var age;
+
+        bar(100);
+
+        function bar(num){
+            console.log(num) // 100
+        }
+    }
+} */
+
+// console.log(global)
+
+/* {
+    console.log(a) // undefined
+
+    var a = 100;
+
+    fn('zs');
+    function fn(name) {
+        age = 20;
+        console.log(name, age) // zs 20
+        var age;
+    }
+} */
+
+/* {
+    var a = {
+        name: 'A',
+        fn: function () {
+            console.log(this.name)
+        }
+    }
+    a.fn() // this === a
+    a.fn.call({ name: 'B' }) // this === {name: 'B'}
+    var fn1 = a.fn
+    fn1() // this === window
+} */
+
+/* {
+    function fn(name, age) {
+        console.log(this)
+        console.log(name)
+        console.log(age)
+    }
+    
+    fn.call({ x: 100 }, 'zs', 20);
+
+    // 第二个参数是数组
+    fn.apply({ y: 200 }, ['ls', 30]);
+
+    var fn2 = function (name, age) {
+        console.log(this)
+        console.log(name)
+        console.log(age)
+    }.bind({ z: 300 })
+
+    fn2('ww', 40)
+} */
+
+/* {
+    function F1() {
+        var a = 100;
+
+        // 函数作为返回值
+        return function () {
+            console.log(a)
+        }
+    }
+
+    // f1 得到一个函数
+    var f1 = F1()
+    var a = 200
+
+    f1() // 100， 函数的作用域由定义的时候决定的， 所以 a 取的是 100
+} */
+
+/* {
+    function F1() {
+        var a = 100;
+        return function () {
+            console.log(a)
+        }
+    }
+    var f1 = F1()
+
+    function F2(fn) {
+        var a = 200;
+        fn()
+    }
+
+    F2(f1) // 100
+} */
+
+/* {
+    // 创建10个a标签，点击时候弹出对应序号
+    var i;
+    for (i = 0; i < 10; i++) {
+        (function (i) {
+            var a = document.createElement('a')
+            a.innerHTML = i + '<br>'
+            a.addEventListener('click', function (e) {
+                e.preventDefault()
+                console.log(i)
+            })
+            document.body.appendChild(a)
+        })(i)
+    }
+} */
+
+/* {   
+    // 封装变量，收敛权限
+    function isFirstLoad() {
+        var _list = [];
+        return function (id) {
+            if (_list.indexOf(id) >= 0) {
+                return false;
+            } else {
+                _list.push(id);
+                return true;
+            }
+        }
+    }
+    var firstLoad = isFirstLoad()
+    console.log(firstLoad(10)) // true
+    console.log(firstLoad(10)) // false
+    console.log(firstLoad(20)) // true
+} */
+
+/* {   
+    // 异步
+    console.log(100);
+    setTimeout(function () {
+        console.log(200);
+    }, 1000)
+    console.log(300)
+    
+    // 输出顺序：100 300 200
+
+    // 同步
+    console.log(100)
+    // alert(200)
+    console.log(300)
+} */
+
+/* {
+    console.log(1);
+
+    setTimeout(function(){
+        console.log(2)
+    },0);
+
+    console.log(3);
+
+    setTimeout(function() {
+        console.log(4)
+    }, 1000);
+
+    console.log(5)
+
+    // 输出：1 3 5 2 4
+} */
+
+/* {
+    console.log(Date.now()) // 1509527636788, 获取当前时间毫秒数
+    var dt = new Date();
+    console.log(dt.getTime()); // 1509527636794, 获取当前时间毫秒数
+    console.log(dt.getFullYear()) // 年
+    console.log(dt.getMonth()) // 月（0-11）
+    console.log(dt.getDate()) // 日（0-31）
+    console.log(dt.getHours()) // 小时（0-23）
+    console.log(dt.getMinutes()) // 分钟（0-59）
+    console.log(dt.getSeconds()) // 秒（0-60）
+} */
+
+/* {
+    var arr = [1, 2, 3, 4];
+    arr.forEach(function (item, index) {
+        console.log(index, item);
+    })
+
+    var result = arr.every(function (item, index) {
+        if (item < 4) {
+            return true;
+        }
+    })
+    console.log(result); // false，有一个不符合
+
+    var result2 = arr.some(function (item, index) {
+        if (item < 2) {
+            return true;
+        }
+    })
+    console.log(result2); // true，有一个符合
+
+    var arr2 = arr.sort(function (a, b) {
+        return b - a; // 从大到小排序
+    })
+    console.log(arr2) // sort 参数是一个函数
+
+    var arr3 = arr.map(function (item, index) {
+        return '<br>' + item + ''; // 元素重新组装
+    })
+    console.log(arr3)
+
+    var arr4 = arr.filter(function (item, index) {
+        if (item >= 2) {
+            return true
+        }
+    })
+    console.log(arr4)
+} */
+
+/* {
+    var obj = {
+        x: 100,
+        y: 200,
+        z: 300
+    }
+    var key
+    for (key in obj) {
+        if (obj.hasOwnProperty(key)) {
+            console.log(key, obj[key])
+        }
+    }
+} */
+
+/* {
+    // 获取 2017-10-10 格式的日期
+    function formatDate(dt) {
+        if (!dt) {
+            dt = new Date();
+        }
+        var year = dt.getFullYear();
+        var month = dt.getMonth() + 1;
+        var date = dt.getDate()
+        if (month < 10) {
+            month = '0' + month;
+        }
+        if (date < 10) {
+            date = '0' + date
+        }
+        return year + '-' + month + '-' + date;
+    }
+
+    var dt = new Date()
+    var fmtDate = formatDate(dt);
+    console.log(fmtDate) // 2017-10-10
+} */
+
+/* {
+    var random = Math.random();
+    var random = random + '0000000000'; // 后面加 10 个 0
+    var random = random.slice(0, 10); // 截取前十个
+    console.log(random)
+} */
+
+/* {
+    function forEach(obj, fn) {
+        var key;
+        if (obj instanceof Array) {
+            obj.forEach(function (item, index) {
+                fn(index, item);
+            })
+        } else {
+            for (key in obj) {
+                fn(key, obj[key]);
+            }
+        }
+    }
+
+    // 测试
+
+    var arr = [1, 2, 3];
+    // 这里参数顺序换了，为了跟对象遍历一致
+    forEach(arr, function (index, item) {
+        console.log(index, item);
+    })
+
+    var obj = { x: 100, y: 200 };
+    forEach(obj, function (key, value) {
+        console.log(key, value)
+    })
+} */
+
+/* {
+    document.getElementById('div1') // 拿到元素
+    document.getElementsByTagName('div') // 拿到集合
+    document.getElementsByClassName('.container') // 集合
+    document.querySelector('#demo') // 元素
+    document.querySelectorAll('p') // 集合
+} */
+
+{
+    /* var pList = document.querySelectorAll('p');
+    var p = pList[0];
+    console.log(p.style.width); // 获取样式
+
+    p.style.width = '100px'; // 修改样式
+    console.log(p.className); // 获取 class
+    p.className = 'p1'; // 修改 class
+
+    console.log(p.nodeName); // 获取 nodeName
+    console.log(p.nodeType); // 获取 nodeType */
+
+    /* 
+    Node.nodeType
+
+    常量	                           值	     描述
+    Node.ELEMENT_NODE	             1	一个 元素 节点，例如 <p> 和 <div>。
+    Node.TEXT_NODE	                 3	Element 或者 Attr 中实际的  文字
+    Node.PROCESSING_INSTRUCTION_NODE 7	一个用于XML文档的 ProcessingInstruction ，例如 <?xml-stylesheet ... ?> 声明。
+    Node.COMMENT_NODE	             8	一个 Comment 节点。
+    Node.DOCUMENT_NODE	             9	一个 Document 节点。
+    Node.DOCUMENT_TYPE_NODE	         10	描述文档类型的 DocumentType 节点。例如 <!DOCTYPE html>  就是用于 HTML5 的。
+    Node.DOCUMENT_FRAGMENT_NODE	     11	一个 DocumentFragment 节点
+
+    没列出来的已经弃用了。
+*/
+}
+
+/* {
+    var pList = document.querySelectorAll('p');
+    var p = pList[0];
+
+    p.getAttribute('data-name');
+    p.setAttribute('data-name', 'sss');
+
+    p.getAttribute('style');
+    p.setAttribute('style', 'font-size:30px');
+} */
+
+
+</div></p></div><div class="tags"></div><div class="post-nav"><a href="/2017/11/02/面试整理1101/面试整理/" class="pre"></a><a href="/2017/10/30/面试/vue/" class="next"></a></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><form action="//www.baidu.com/baidu" method="get" accept-charset="utf-8" target="_blank" class="search-form"><input type="search" name="word" maxlength="20" placeholder="Search"/><input type="hidden" name="si" value="http://yoursite.com"/><input name="tn" type="hidden" value="bds"/><input name="cl" type="hidden" value="3"/><input name="ct" type="hidden" value="2097152"/><input name="s" type="hidden" value="on"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo/">Hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript-基础/">JavaScript 基础</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/书单/">书单</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/转载/">转载</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/遇到的问题/">遇到的问题</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/面试/">面试</a><span class="category-list-count">2</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/书单/" style="font-size: 15px;">书单</a> <a href="/tags/Hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/ES6/" style="font-size: 15px;">ES6</a> <a href="/tags/正则表达式/" style="font-size: 15px;">正则表达式</a> <a href="/tags/爬虫/" style="font-size: 15px;">爬虫</a> <a href="/tags/JavaScript/" style="font-size: 15px;">JavaScript</a> <a href="/tags/Git/" style="font-size: 15px;">Git</a> <a href="/tags/遇到的问题/" style="font-size: 15px;">遇到的问题</a> <a href="/tags/面试/" style="font-size: 15px;">面试</a> <a href="/tags/网络基础/" style="font-size: 15px;">网络基础</a> <a href="/tags/架构/" style="font-size: 15px;">架构</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/11/02/面试整理1101/preview/toc/style/makedownpad/">面试整理1101/preview/toc/style/makedownpad</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/02/面试整理1101/preview/toc/style/github-bf51422f4bb36427d391e4b75a1daa083c2d840e/">面试整理1101/preview/toc/style/github-bf51422f4bb36427d391e4b75a1daa083c2d840e</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/02/面试整理1101/preview/toc/style/GitHub2/">面试整理1101/preview/toc/style/GitHub2</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/02/面试整理1101/preview/toc/style/github2-d731afd4f624c99a4b19ad69f3083cd6d02b81d5/">面试整理1101/preview/toc/style/github2-d731afd4f624c99a4b19ad69f3083cd6d02b81d5</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/02/面试整理1101/preview/toc/style/GitHub/">面试整理1101/preview/toc/style/GitHub</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/02/面试整理1101/preview/toc/js/ztree_toc.min/">面试整理1101/preview/toc/js/ztree_toc.min</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/02/面试整理1101/preview/toc/style/Clearness Dark/">面试整理1101/preview/toc/style/Clearness Dark</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/02/面试整理1101/preview/toc/style/Clearness/">面试整理1101/preview/toc/style/Clearness</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/02/面试整理1101/preview/toc/js/ztree_toc/">面试整理1101/preview/toc/js/ztree_toc</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/02/面试整理1101/preview/toc/js/jquery.ztree.all-3.5.min/">面试整理1101/preview/toc/js/jquery.ztree.all-3.5.min</a></li></ul></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2017 <a href="/." rel="nofollow">Awoke.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a id="rocket" href="#top" class="show"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.1.20/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.1.20/jquery.fancybox.min.css"><script type="text/javascript" color="100,99,98" opacity="0.7" zIndex="-1" count="150" src="//cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js"></script><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
