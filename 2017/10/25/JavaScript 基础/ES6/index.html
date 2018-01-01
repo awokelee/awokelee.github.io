@@ -1,4 +1,377 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>ES6 | Awoke</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/7.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">ES6</h1><a id="logo" href="/.">Awoke</a><p class="description">记录下dq学习的点滴</p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a></div></div><div id="layout" class="pure-g"><div class="pure-u-1 pure-u-md-4-4"><div class="content_container"><div class="post"><h1 class="post-title">ES6</h1><div class="post-content"><p>记录一些ES6新特性.</p>
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <meta charset="utf-8">
+    
+    <title>ES6 | Awoke</title>
+    
+    
+        <meta name="keywords" content="ES6" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="记录一些ES6新特性.">
+<meta name="keywords" content="ES6">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ES6">
+<meta property="og:url" content="http://yoursite.com/2017/10/25/JavaScript 基础/ES6/index.html">
+<meta property="og:site_name" content="Awoke">
+<meta property="og:description" content="记录一些ES6新特性.">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-10-27T06:08:16.082Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ES6">
+<meta name="twitter:description" content="记录一些ES6新特性.">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="Awoke" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="/favicon.ico" />
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="/libs/jquery/plugins/cookie/1.4.1/jquery.cookie.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+    
+
+
+</head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">Awoke</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/">首页</a>
+                
+                    <a class="main-nav-link" href="/archives">归档</a>
+                
+                    <a class="main-nav-link" href="/categories">分类</a>
+                
+                    <a class="main-nav-link" href="/tags">标签</a>
+                
+                    <a class="main-nav-link" href="/about">关于</a>
+                
+            </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/">首页</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">归档</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">分类</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">关于</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap" id='categories'>
+        <h3 class="widget-title">
+            <span>分类</span>
+            &nbsp;
+            <a id='allExpand' href="#">
+                <i class="fa fa-angle-double-down fa-2x"></i>
+            </a>
+        </h3>
+        
+        
+        
+         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Git
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2017/10/25/遇到的问题/Git出现 fatal Pathspec 'xxx' is in submodule/">Git出现 fatal:Pathspec 'xxx' is in submodule</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Hexo
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2017/10/25/hexo/">Hexo 常用命令</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            JavaScript 基础
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file active"><a href="/2017/10/25/JavaScript 基础/ES6/">ES6</a></li>  <li class="file"><a href="/2017/10/26/JavaScript 基础/JavaScript 小技巧/">JavaScript 小技巧</a></li>  <li class="file"><a href="/2017/10/28/JavaScript 基础/JavaScript 排序算法/">JavaScript 排序算法</a></li>  <li class="file"><a href="/2017/10/27/JavaScript 基础/JavaScript 数组去重/">JavaScript 数组去重</a></li>  <li class="file"><a href="/2017/10/27/JavaScript 基础/JavaScript 数组相关/">JavaScript 数组常用方法</a></li>  <li class="file"><a href="/2017/10/26/JavaScript 基础/JavaScript 简写技巧/">JavaScript 简写技巧</a></li>  <li class="file"><a href="/2017/10/27/JavaScript 基础/正则表达式/">JavaScript 正则表达式</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            node
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2017/10/29/node/爬虫 - puppeteer 截屏/">爬虫（一） - puppeteer 截屏</a></li>  <li class="file"><a href="/2017/10/29/node/爬虫 - puppeteer 抓文件/">爬虫（二） - puppeteer 抓文件</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            书单
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2017/10/25/书单/书单/">书单</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            代码库
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2017/12/31/代码库/CSS-RESET/">CSS</a></li>  <li class="file"><a href="/2017/12/31/代码库/gulp/">gulp</a></li>  <li class="file"><a href="/2017/12/31/代码库/nodejs/">nodejs</a></li>  <li class="file"><a href="/2017/12/31/代码库/javascript/">javascript</a></li>  <li class="file"><a href="/2017/12/31/代码库/package.json/">package.json</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            转载
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2017/10/26/转载/一文看懂web服务器、应用服务器、web容器、反向代理服务器区别与联系/">web服务器、应用服务器、web容器、反向代理服务器区别联系</a></li>  <li class="file"><a href="/2017/10/25/转载/互联网分层架构，为啥要前后端分离？/">互联网分层架构，为啥要前后端分离</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            遇到的问题
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2017/10/29/遇到的问题/async Unexpected token function/">async Unexpected token function</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            面试
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2017/10/28/面试/前端面试-自己整理/">前端面试-自己整理</a></li>  <li class="file"><a href="/2017/11/02/面试整理1101/面试整理/">JS 基础部分面试</a></li>  <li class="file"><a href="/2017/10/28/面试/前端面试/">前端面试</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/2017/10/30/面试/vue/"></a></li>  </ul> 
+    </div>
+    <script>
+        $(document).ready(function() {
+            var iconFolderOpenClass  = 'fa-folder-open';
+            var iconFolderCloseClass = 'fa-folder';
+            var iconAllExpandClass = 'fa-angle-double-down';
+            var iconAllPackClass = 'fa-angle-double-up';
+            // Handle directory-tree expansion:
+            // 左键单独展开目录
+            $(document).on('click', '#categories a[data-role="directory"]', function (event) {
+                event.preventDefault();
+
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var subtree = $(this).siblings('ul');
+                icon.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if (expanded) {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideUp({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderCloseClass);
+                } else {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideDown({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderOpenClass);
+                }
+            });
+            // 右键展开下属所有目录
+            $('#categories a[data-role="directory"]').bind("contextmenu", function(event){
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var listNode = $(this).siblings('ul');
+                var subtrees = $.merge(listNode.find('li ul'), listNode);
+                var icons = $.merge(listNode.find('.fa'), icon);
+                icons.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if(expanded) {
+                    subtrees.slideUp({ duration: 100 });
+                    icons.addClass(iconFolderCloseClass);
+                } else {
+                    subtrees.slideDown({ duration: 100 });
+                    icons.addClass(iconFolderOpenClass);
+                }
+            })
+            // 展开关闭所有目录按钮
+            $(document).on('click', '#allExpand', function (event) {
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconAllExpandClass);
+                icon.removeClass(iconAllExpandClass).removeClass(iconAllPackClass);
+                if(expanded) {
+                    $('#sidebar .fa.fa-folder').removeClass('fa-folder').addClass('fa-folder-open')
+                    $('#categories li ul').slideDown({ duration: 100 });
+                    icon.addClass(iconAllPackClass);
+                } else {
+                    $('#sidebar .fa.fa-folder-open').removeClass('fa-folder-open').addClass('fa-folder')
+                    $('#categories li ul').slideUp({ duration: 100 });
+                    icon.addClass(iconAllExpandClass);
+                }
+            });  
+        });
+    </script>
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+            <section id="main"><article id="single-column-JavaScript 基础/ES6" class="article article-type-single-column" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/JavaScript-基础/">JavaScript 基础</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/ES6/">ES6</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/10/25/JavaScript 基础/ES6/">
+            <time datetime="2017-10-25T06:16:34.000Z" itemprop="datePublished">2017-10-25</time>
+        </a>
+    </div>
+
+
+                        
+                            <div class="article-meta-button">
+                                <a href='https://github.com/zthxxx/Wiki-site/raw/writing/source/_posts/JavaScript 基础/ES6.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/zthxxx/Wiki-site/edit/writing/source/_posts/JavaScript 基础/ES6.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/zthxxx/Wiki-site/commits/writing/source/_posts/JavaScript 基础/ES6.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 class="article-title" itemprop="name">
+            ES6
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                <div id="toc" class="toc-article">
+                <strong class="toc-title">文章目录</strong>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#ES6"><span class="toc-number">1.</span> <span class="toc-text">ES6</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#let-const"><span class="toc-number">1.1.</span> <span class="toc-text">let const</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解构赋值"><span class="toc-number">1.2.</span> <span class="toc-text">解构赋值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#正则扩展"><span class="toc-number">1.3.</span> <span class="toc-text">正则扩展</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数值扩展"><span class="toc-number">1.4.</span> <span class="toc-text">数值扩展</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数组扩展"><span class="toc-number">1.5.</span> <span class="toc-text">数组扩展</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#函数扩展"><span class="toc-number">1.6.</span> <span class="toc-text">函数扩展</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#对象扩展"><span class="toc-number">1.7.</span> <span class="toc-text">对象扩展</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Symbol"><span class="toc-number">1.8.</span> <span class="toc-text">Symbol</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#set-map-数据结构"><span class="toc-number">1.9.</span> <span class="toc-text">set map 数据结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#map-set-与数组-Object对比"><span class="toc-number">1.10.</span> <span class="toc-text">map set 与数组 Object对比</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Proxy-和-Reflect"><span class="toc-number">1.11.</span> <span class="toc-text">Proxy 和 Reflect</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#类和对象"><span class="toc-number">1.12.</span> <span class="toc-text">类和对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Promise"><span class="toc-number">1.13.</span> <span class="toc-text">Promise</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是异步"><span class="toc-number">1.13.1.</span> <span class="toc-text">什么是异步</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Promise的作用"><span class="toc-number">1.13.2.</span> <span class="toc-text">Promise的作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Promise的基本用法"><span class="toc-number">1.13.3.</span> <span class="toc-text">Promise的基本用法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#传统写法"><span class="toc-number">1.13.3.1.</span> <span class="toc-text">传统写法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#resolve"><span class="toc-number">1.13.3.2.</span> <span class="toc-text">resolve</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#reject"><span class="toc-number">1.13.3.3.</span> <span class="toc-text">reject</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#then"><span class="toc-number">1.13.3.4.</span> <span class="toc-text">then</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Promise-all"><span class="toc-number">1.13.3.5.</span> <span class="toc-text">Promise.all</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Promise-race"><span class="toc-number">1.13.3.6.</span> <span class="toc-text">Promise.race</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#字符串扩展"><span class="toc-number">1.14.</span> <span class="toc-text">字符串扩展</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Unicode表示法"><span class="toc-number">1.14.1.</span> <span class="toc-text">Unicode表示法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#遍历接口"><span class="toc-number">1.14.2.</span> <span class="toc-text">遍历接口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模板字符串"><span class="toc-number">1.14.3.</span> <span class="toc-text">模板字符串</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#includes-startsWith-endsWith"><span class="toc-number">1.14.4.</span> <span class="toc-text">includes startsWith endsWith</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#padStart-padEnd"><span class="toc-number">1.14.5.</span> <span class="toc-text">padStart padEnd</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#标签模板"><span class="toc-number">1.14.6.</span> <span class="toc-text">标签模板</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#raw"><span class="toc-number">1.14.7.</span> <span class="toc-text">raw</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Iterator-和-for…of"><span class="toc-number">1.15.</span> <span class="toc-text">Iterator 和 for…of</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#iterator"><span class="toc-number">1.15.1.</span> <span class="toc-text">iterator</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实现-iterator"><span class="toc-number">1.15.2.</span> <span class="toc-text">实现 iterator</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#for…of"><span class="toc-number">1.15.3.</span> <span class="toc-text">for…of</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Generator-（比Promise更高级）"><span class="toc-number">1.16.</span> <span class="toc-text">Generator （比Promise更高级）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#基本定义"><span class="toc-number">1.16.1.</span> <span class="toc-text">基本定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#generator与iterator关系"><span class="toc-number">1.16.2.</span> <span class="toc-text">generator与iterator关系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#状态机"><span class="toc-number">1.16.3.</span> <span class="toc-text">状态机</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#抽奖应用"><span class="toc-number">1.16.4.</span> <span class="toc-text">抽奖应用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#长轮询"><span class="toc-number">1.16.5.</span> <span class="toc-text">长轮询</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#decorator（修饰器）"><span class="toc-number">1.17.</span> <span class="toc-text">decorator（修饰器）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#概念"><span class="toc-number">1.17.1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#需要安装插件"><span class="toc-number">1.17.2.</span> <span class="toc-text">需要安装插件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#案例"><span class="toc-number">1.17.3.</span> <span class="toc-text">案例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第三方库-core-decorators"><span class="toc-number">1.17.4.</span> <span class="toc-text">第三方库 core-decorators</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#案例-埋点日志"><span class="toc-number">1.17.5.</span> <span class="toc-text">案例-埋点日志</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ES6-模块化"><span class="toc-number">1.18.</span> <span class="toc-text">ES6 模块化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#使用"><span class="toc-number">1.18.1.</span> <span class="toc-text">使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#export-default-（推荐）"><span class="toc-number">1.18.2.</span> <span class="toc-text">export default （推荐）</span></a></li></ol></li></ol></li></ol>
+                </div>
+            
+        
+        
+            <p>记录一些ES6新特性.</p>
 <a id="more"></a>
 <h1 id="ES6"><a href="#ES6" class="headerlink" title="ES6"></a>ES6</h1><h2 id="let-const"><a href="#let-const" class="headerlink" title="let const"></a>let const</h2><ul>
 <li>块级作用域</li>
@@ -102,4 +475,99 @@
 <h3 id="案例-埋点日志"><a href="#案例-埋点日志" class="headerlink" title="案例-埋点日志"></a>案例-埋点日志</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="keyword">let</span> log = <span class="function">(<span class="params">type</span>) =&gt;</span> &#123;</div><div class="line">        <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">tartget, name, descriptor</span>) </span>&#123;</div><div class="line">            <span class="keyword">let</span> src_method = descriptor.value</div><div class="line">            descriptor.value = <span class="function">(<span class="params">...arg</span>) =&gt;</span> &#123;</div><div class="line">                src_method.apply(tartget, arg)</div><div class="line">                <span class="built_in">console</span>.log(<span class="string">`log <span class="subst">$&#123;type&#125;</span>`</span>)</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="class"><span class="keyword">class</span> <span class="title">AD</span> </span>&#123;</div><div class="line">        @log(<span class="string">'show'</span>)</div><div class="line">        show()&#123;</div><div class="line">            <span class="built_in">console</span>.log(<span class="string">'ad is show'</span>)</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        @log(<span class="string">'click'</span>)</div><div class="line">        click()&#123;</div><div class="line">            <span class="built_in">console</span>.log(<span class="string">'ad is click'</span>)</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">let</span> ad = <span class="keyword">new</span> AD()</div><div class="line">    ad.show()</div><div class="line">    ad.click()</div><div class="line"></div><div class="line">    <span class="comment">// 依次打印</span></div><div class="line">    <span class="comment">// ad is show</span></div><div class="line">    <span class="comment">// log show</span></div><div class="line">    <span class="comment">// ad is click</span></div><div class="line">    <span class="comment">// log click</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h2 id="ES6-模块化"><a href="#ES6-模块化" class="headerlink" title="ES6 模块化"></a>ES6 模块化</h2><h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">export</span> <span class="keyword">let</span> A = <span class="number">123</span></div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'test'</span>)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">Hello</span> </span>&#123;</div><div class="line">    test() &#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'class test'</span>)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">import</span> &#123; A, test, Hello &#125; <span class="keyword">from</span> <span class="string">'./module'</span></div><div class="line"><span class="built_in">console</span>.log(A, test, Hello)</div><div class="line"></div><div class="line"><span class="comment">// 或者</span></div><div class="line"></div><div class="line"><span class="keyword">import</span> * <span class="keyword">as</span> lesson <span class="keyword">from</span> <span class="string">'./module'</span></div><div class="line"><span class="built_in">console</span>.log(lesson.A, lesson.test)</div></pre></td></tr></table></figure>
 <h3 id="export-default-（推荐）"><a href="#export-default-（推荐）" class="headerlink" title="export default （推荐）"></a>export default （推荐）</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 推荐用 export default</span></div><div class="line"><span class="keyword">let</span> A = <span class="number">123</span></div><div class="line"></div><div class="line"><span class="keyword">let</span> test = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'test'</span>)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Hello</span> </span>&#123;</div><div class="line">    test() &#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'class test'</span>)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</div><div class="line">    A,</div><div class="line">    test,</div><div class="line">    Hello</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 名字随便 推荐这种</span></div><div class="line"><span class="keyword">import</span> Lesson <span class="keyword">from</span> <span class="string">'./module'</span></div><div class="line"><span class="built_in">console</span>.log(Lesson.A)</div></pre></td></tr></table></figure>
-</div></div></div></div><div class="pure-u-1 pure-u-md-4-4"><div id="footer">Copyright © 2017 <a href="/." rel="nofollow">Awoke.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a id="rocket" href="#top" class="show"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.1.20/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.1.20/jquery.fancybox.min.css"><script type="text/javascript" color="100,99,98" opacity="0.7" zIndex="-1" count="150" src="//cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js"></script><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+    
+<nav id="article-nav">
+    
+        <a href="/2017/10/25/遇到的问题/Git出现 fatal Pathspec 'xxx' is in submodule/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    Git出现 fatal:Pathspec &#39;xxx&#39; is in submodule
+                
+            </div>
+        </a>
+    
+    
+</nav>
+
+
+
+
+
+    
+    
+
+
+
+
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
+</section>
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            John Doe &copy; 2018 
+            <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png" /></a>
+            <br> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme - <a href="https://github.com/zthxxx/hexo-theme-Wikitten">wikitten</a>
+        </div>
+    </div>
+</footer>
+        
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true,
+            TeX: {
+                equationNumbers: {
+                  autoNumber: 'AMS'
+                }
+            }
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
