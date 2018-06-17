@@ -1,12 +1,35 @@
-$(window).scroll(function() {
-    $(window).scrollTop() > 500 ? $("#rocket").addClass("show") : $("#rocket").removeClass("show");
-});
-$("#rocket").click(function() {
-    $("#rocket").addClass("launch");
-    $("html, body").animate({
-        scrollTop: 0
-    }, 500, function() {
-        $("#rocket").removeClass("show launch");
-    });
-    return false;
+function myEvent(obj,ev,fn){
+	if(obj.attachEvent){
+		obj.attachEvent('on'+ev,fn);
+	}else{
+		obj.addEventListener(ev,fn,false);
+	}
+}
+myEvent(window,'load',function(){
+	var oRTT=document.getElementById('back_to_top');
+	var pH=document.documentElement.clientHeight;
+	var timer=null;
+	var scrollTop;
+	window.onscroll=function(){
+		scrollTop=document.documentElement.scrollTop||document.body.scrollTop;
+		if(scrollTop>=pH){
+			oRTT.style.display='block';
+		}else{
+			oRTT.style.display='none';
+		}
+		return scrollTop;
+	};
+	oRTT.onclick=function(){
+		clearInterval(timer);
+		timer=setInterval(function(){
+			var now=scrollTop;
+			var speed=(0-now)/10;
+			speed=speed>0?Math.ceil(speed):Math.floor(speed);
+			if(scrollTop==0){
+				clearInterval(timer);
+			}
+			document.documentElement.scrollTop=scrollTop+speed;
+			document.body.scrollTop=scrollTop+speed;
+		}, 30);
+	}
 });
