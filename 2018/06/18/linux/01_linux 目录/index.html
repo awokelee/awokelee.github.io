@@ -1,0 +1,101 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><title>linux 目录 - Awoke</title><meta name="description" content="linux 目录.http://www.cnblogs.com/zhyryxz/archive/2012/05/03/2480242.htmllinux 目录目录全名/boot：boot/root ：root/run：run/home：home/etc：ETCetera/bin：BINaries/d"><link type="text/css" rel="stylesheet" href="/css/pure.css?v=0.0.1"><link type="text/css" rel="stylesheet" href="/css/style.css?v=0.0.1"><script type="text/javascript" src="//cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script></head></html><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">linux 目录</h1><a id="logo" href="/.">Awoke</a></div><div id="nav-menu"><div class="bitcron_nav"><div class="site_nav_wrap"><div class="site_nav"><span class="a_container"><a href="/." class="selected active current">归档</a></span><span class="a_container"><a href="/about/">关于</a></span></div></div></div></div></div><div id="layout" class="pure-g"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">linux 目录</h1><div class="post-meta">2018-06-18</div><!--文章内容--><div class="post-content"><p>linux 目录.</p>
+<a id="more"></a>
+<blockquote>
+<p><a href="http://www.cnblogs.com/zhyryxz/archive/2012/05/03/2480242.html" target="_blank" rel="noopener">http://www.cnblogs.com/zhyryxz/archive/2012/05/03/2480242.html</a></p>
+</blockquote>
+<h1 id="linux-目录"><a href="#linux-目录" class="headerlink" title="linux 目录"></a>linux 目录</h1><h2 id="目录全名"><a href="#目录全名" class="headerlink" title="目录全名"></a>目录全名</h2><ul>
+<li><p><code>/boot</code>：boot</p>
+</li>
+<li><p><code>/root</code> ：root</p>
+</li>
+<li><p><code>/run</code>：run</p>
+</li>
+<li><p><code>/home</code>：home</p>
+</li>
+<li><p><code>/etc</code>：ETCetera</p>
+</li>
+<li><p><code>/bin</code>：BINaries</p>
+</li>
+<li><p><code>/dev</code>：DEVices</p>
+</li>
+<li><p><code>/lib</code>：LIBraries</p>
+</li>
+<li><p><code>/mnt</code>：MouNT</p>
+</li>
+<li><p><code>/proc</code>：PROCesses</p>
+</li>
+<li><p><code>/tmp</code>：TeMPorary</p>
+</li>
+<li><p><code>/var</code>：VARiable</p>
+</li>
+<li><p><code>/srv</code>：SeRVices</p>
+</li>
+<li><p><code>/opt</code>：OPTional</p>
+</li>
+<li><p><code>/sbin</code>：Super BINaries or Superuser BINaries</p>
+</li>
+<li><p><code>/sys</code>：SYStem</p>
+</li>
+<li><p><code>/usr</code>：Unix System Resources or Unix Software Resources or Unix Shared Resources（这个很重要，很多人会认为这个是user）</p>
+</li>
+</ul>
+<h2 id="目录详解"><a href="#目录详解" class="headerlink" title="目录详解"></a>目录详解</h2><p>1.根目录(<code>/</code>)的意义与内容<br>根目录是整个 <code>linux</code> 系统最重要的一个目录，所有的目录都是由根目录衍生出来的，根目录也与开机、还原、系统修复等操作有关。<br>FHS 标准建议: 根目录(<code>/</code>)所在分区应该越小越好，且应用程序所安装的软件最好不要与根目录放在同一个分区内，保持根目录越小越好。如此不但性能较好，根目录所在的文件系统也较不容易发生问题。<br>查看 (<code>/</code>) 的文件结构如下:</p>
+<p>1.1 <code>/bin</code> 目录<br>放置内容: 系统的可执行文件目录，<code>linux</code> 系统中有很多放置可执行文件的目录，但 <code>/bin</code> 比较特殊。<code>/bin</code> 放置的是在单用户维护模式下还能够被操作的命令。在 <code>/bin</code> 下面的命令可以被 <code>root</code> 与一般帐号使用。下面列出 <code>/bin</code> 下文件与目录。</p>
+<p>可以发现常用的 <code>cp</code>, <code>grep</code>, <code>ls</code>, <code>dir</code>, <code>more</code>, <code>rm</code>, <code>cat</code> 等命令都在 <code>/bin</code> 下。</p>
+<p>1.2 <code>/boot</code> 目录<br>放置内容: 这个目录下放置开机会使用到的文件，包括 <code>linux</code> 内核文件以及开机菜单与开机所配置文件等。</p>
+<p><code>/grub</code> 是一个目录，继续查看 <code>/grub</code> 目录内容:</p>
+<p>还有很多以 <code>.mod</code> <code>.img</code> <code>.o</code>的文件，我没有全部列出来。我猜测 <code>/grub</code> 文件应该是 <code>linux</code> 开机引导程序。</p>
+<p>1.3 <code>/cdrom</code> 目录是一个空目录，具体含义未知。</p>
+<p>1.4 <code>/dev</code> 目录<br>放置内容: 在 <code>linux</code> 系统上，任何设备与接口都是以文件的形式存在于这个目录中。访问这些文件，就相当于访问某个设备。<br>查看目录内容:</p>
+<p>硬盘，光驱，鼠标，键盘 都是以文件的方式放在这个目录下。</p>
+<p>1.4 <code>/etc</code> 目录<br>放置内容: 系统的主要配置文件几乎都放置在这个目录下。一般来说，这个目录下的各个文件属性是可以让一般用户查阅的，但是只有 <code>root</code> 有权利修改。 <code>FHS</code> 建议不要放置可执行文件在这个目录中。<br>查看目录内容:</p>
+<p>一些重要的目录有:<br><code>/etc/init.d/</code>: 所有服务的默认启动脚本都是放置在这里的。<br><code>/etc/xinetd.d/</code>: 这就是所谓的的 <code>super</code> <code>daemon</code> 管理的各项服务的配置文件目录。但是在我的 <code>ubuntu</code> <code>/etc/</code> 下并无此文件。<br><code>/etc/X11/</code>: 与 <code>X Window</code> 有关的各种配置文件都在这里。</p>
+<p>1.5 <code>/home</code> 目录<br>放置内容: 系统默认的用户主文件夹。每创建一个一般用户帐号，默认的用户主文件夹都会规范到这里来。</p>
+<p>1.6 <code>/lib</code> 目录<br>放置内容: 放置开机时会用到的函数库，以及在 <code>/bin</code> 或 <code>/sbin</code> 下面的命令会调用的函数。<br>查看目录内容:</p>
+<p><code>/lib/modules/</code> 放置内核相关的模块(驱动程序)</p>
+<p>1.7 <code>/media</code> 目录<br>放置内容: 放置可删除的设备。包括软盘、光盘、DVD 等设备都在暂时挂载于此。</p>
+<p>1.8 <code>/mnt</code> 目录<br>放置内容: 挂载某些额外的设备</p>
+<p>1.9 <code>/opt</code> 目录<br>放置内容: 第三方软件放置的目录。如果你想自行安装额外的软件(非原本的 <code>distribution</code> 提供的)，那么也能够将你的软件安装到这里来。<br>在我的 <code>ubuntu</code> 下， <code>/opt/</code> 中只有 <code>birl</code> 一个文件，因为我安装了一个 <code>birl。</code></p>
+<p>1.10 <code>/root</code> 目录<br>放置内容: 系统管理员(<code>root</code>)的主文件夹。之所以放在这里，是因为如果进入单用户维护模式而仅挂载根目录时，该文件能够拥有 <code>root</code> 的主文件夹，所以希望 <code>root</code> 的主文件夹与根目录放置在同一个分区中。<br>只有 root 权限才可以访问 <code>/root</code> 目录。</p>
+<p>1.11 <code>/sbin</code> 目录<br>放置内容: 开机过程中所需要的，里面包括开机、修复、还原系统所需要的命令。某些服务器软件程序，一般放置到 <code>/usr/sbin/</code> 当中。本机自行安装的软件所产生的系统执行文件，则放置到 <code>/usr/local/sbin</code> 中。<br>查看 <code>/sbin</code> 目录:</p>
+<p>1.12 <code>/srv</code> 目录<br>放置内容: “<code>service”</code> 的缩写，是一些网络服务启动后，这些服务所需要取用的数据目录。常见的服务例如 <code>WWW</code>，<code>FTP</code> 等。</p>
+<p>1.13 <code>/tmp</code> 目录<br>放置内容: 一般用户或者是正在执行的程序暂时放置文件的地方。这个目录任何人都可以访问，所以需要定期清理一下。<br>查看 <code>/tmp/</code> 目录:</p>
+<p>1.14 <code>/lost+found</code> 目录<br>放置内容: 放置 <code>ext2/ext3</code> 文件系统格式才会产生的一个目录，目的在于当文件系统发生错误时，将一些丢失的片段放置到这个目录下。这个目录通常会放置在分区的最顶层存在。<br>我的 <code>ubuntu</code> 文件格式为 <code>ext4</code>，<code>/lost+found/</code> 目录中无内容 (不知道这样的解释对不对?)</p>
+<p>1.15 <code>/proc</code> 目录<br>放置内容: 这个目录本身是一个虚拟文件系统(<code>virtual filesystem</code>)。它放置的数据都是在内存中，例如系统内核、进程、外部设备的状态及网络状态等。目录下所有数据都是在内存中，所以本身不占任何硬盘空间。<br>查看 <code>/proc</code> 目录:</p>
+<p>比较重要的有 <code>/proc/dma</code>, <code>/proc/interrupts</code>, <code>/proc/cpuinfo</code> 等。</p>
+<p>1.16 <code>/sys</code> 目录<br>放置内容: 虚拟文件系统，主要记录与内核相关的信息，包括目前已加载的内核模块与内核检测到的硬件设备信息，同样不占硬盘容量。<br>查看内容:</p>
+<p>2.<code>/usr</code> 的意义与内容<br><code>usr</code>: <code>UNIX Software Resource</code>. “<code>Unix</code> 操作系统软件资源” 所放置的目录，不是用户数据。 <code>FHS</code> 建议所有的软件开发者应该将他们的数据合理的放置到这个目录下的子目录，而不是自行新建该软件自己独立的目录。<br>查看 <code>/usr</code> 目录结构:</p>
+<p>2.1 <code>/usr/bin</code> 目录<br>放置内容: 绝大部分的用户可使用命令都放在这里。和 <code>/bin</code> 的不同之处在于是否与开机过程有关。</p>
+<p>2.2 <code>/usr/include</code> 目录<br>放置内容:  <code>C/C++</code> 等程序设计语言(<code>header</code>)与包含文件(<code>include</code>) 放置处，当我们以 <code>tarball</code> 方式安装某些数据时，会使用到里头的许多包含文件。<br>查看内容:</p>
+<p>看到这，很多做 <code>C/C++</code> 开发的程序员会不会有种豁然开朗的感觉呢，至少我是这样。</p>
+<p>2.3 <code>/usr/local</code> 目录<br>放置内容: 系统管理员在本机自行安装自己下载的软件，建议安装到此目录，这样方便管理。<code>/local</code> 中也包括 <code>bin</code>, <code>etc</code>, <code>include</code>, <code>lib</code> 等子目录</p>
+<p>2.4 <code>/usr/sbin</code> 目录<br>放置内容: 非系统正常运行所需要的系统命令。最常见的就是某些网络服务器软件的服务命令(<code>daemon</code>)。</p>
+<p>2.5 <code>/usr/share</code> 目录<br>放置内容: 共享文件，在这个目录下放置的数据几乎是不分硬件架构均可读的数据。</p>
+<p>举两个例子:</p>
+<ul>
+<li><p><code>/usr/share/emacs/site-lisp</code> 是 <code>emacs</code> 加载目录。</p>
+</li>
+<li><p>如何你的系统是双系统，假如要修改默认启动项，只需修改 <code>/usr/share/grub/default/grub</code> 文件。</p>
+</li>
+</ul>
+<p>2.6 <code>/usr/src</code> 目录<br>放置内容: <code>src for source</code> ，一般源码放置到这里。内核源码一般放置到 <code>/usr/src/linux/</code> 目录下。<br>查看内容:</p>
+<p>想必不同的 <code>linux-header-*</code> 是由于我升级系统造成的。</p>
+<p>3 <code>/var</code> 的意义和内容<br>如果 <code>/usr</code> 是安装时会占用较大硬盘容量的目录，那么 <code>/var</code> 就是在系统后才会渐渐占用硬盘容量的目录。因为 <code>/var</code> 主要针对常态性变动的文件，包括缓存，登录文件以及软件运行所产生的文件。<br>查看目录:</p>
+<p>3.1 <code>/var/cache</code> 目录<br>放置内容: 应用程序本身运行过程中会产生的一些暂存文件。</p>
+<p>3.2 <code>/var/local</code> 目录<br>放置内容: 程序本身执行过程中，需要使用的数据库文件放置的目录。</p>
+<p>3.3 <code>/var/lock</code> 目录<br>放置内容: 某些设备或者是文件资源一次只能被一个应用程序所使用，如果同时有两个程序使用该设备时，就可能产生一些错误的状况，因此就要将该设备上锁(<code>lock</code>)，以确保该设备只会给单一软件所使用。</p>
+<p>3.4 <code>/var/log</code> 目录<br>放置内容: 登录文件。</p>
+<p>3.5 <code>/var/mail</code> 目录<br>放置内容: 个人电子邮件信箱的目录，不过这个目录也被放置到 <code>/var/spool/mail/</code> 目录中。通常这两个文件的互为链接文件</p>
+<p>3.6 <code>/var/run</code> 目录<br>放置内容: 某些程序或者服务启动后，会将他们的 PID 放置在这个目录下。</p>
+<p>3.7 <code>/var/spool</code> 目录<br>放置内容: 一些队列数据，这些数据使用后一般会被删除。</p>
+<p>4.<code>/selinux</code> 的意义和内容<br>同样放置内存中的信息，不占用任何硬盘容量。<code>/selinux</code> 是 <code>Secure Enhance Linux</code> 的执行目录，而 <code>SELinux</code> 是 <code>Linux</code> 内核的重要外挂功能之一，它可以作为具体权限的管理，主要针对程序(尤其是网络程序)的访问权限。</p>
+</div><!--文章标签--><div class="tags"><a href="/tags/linux/">linux</a></div><!--评论--></div></div></div><div class="pure-u-1-4"><div id="sidebar"><div class="widget"><div class="widget-title"> 分类</div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo/">Hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript-基础/">JavaScript 基础</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/gitbook/">gitbook</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/书单/">书单</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/代码库/">代码库</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/转载/">转载</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/遇到的问题/">遇到的问题</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/面试/">面试</a><span class="category-list-count">3</span></li></ul></div><div class="widget"><div class="widget-title"> 标签</div><div class="tagcloud"><a href="/tags/爬虫/" style="font-size: 14px;">爬虫</a> <a href="/tags/Hexo/" style="font-size: 12px;">Hexo</a> <a href="/tags/JavaScript/" style="font-size: 18px;">JavaScript</a> <a href="/tags/正则表达式/" style="font-size: 12px;">正则表达式</a> <a href="/tags/linux/" style="font-size: 16px;">linux</a> <a href="/tags/书单/" style="font-size: 12px;">书单</a> <a href="/tags/代码库/" style="font-size: 18px;">代码库</a> <a href="/tags/gitbook/" style="font-size: 12px;">gitbook</a> <a href="/tags/遇到的问题/" style="font-size: 12px;">遇到的问题</a> <a href="/tags/面试/" style="font-size: 16px;">面试</a> <a href="/tags/Git/" style="font-size: 12px;">Git</a> <a href="/tags/ES6/" style="font-size: 12px;">ES6</a> <a href="/tags/架构/" style="font-size: 12px;">架构</a> <a href="/tags/网络基础/" style="font-size: 12px;">网络基础</a></div></div></div></div></div><div id="footer">© <a href="/." rel="nofollow">Awoke.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a> Theme<a target="_blank" href="https://github.com/7ye/maupassant-hexo"> Maupassant.</a></div><a id="back_to_top" href="javascript:void(0)" class="back_to_top"><span>△</span></a><script type="text/javascript" src="/js/totop.js?v=0.0.1"></script><link rel="stylesheet" href="/css/jquery.fancybox.css"><script type="text/javascript" src="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.pack.js"></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.1"></script><script>function auto_code_fit(){
+  if($(".highlight").length != 0){
+    var pc_width = $(".post-content").width();
+    $(".highlight .code").find("pre").width((pc_width-70)+"px");
+  }
+}
+window.onresize = function(){
+  auto_code_fit();
+}
+auto_code_fit();</script></div></body>
