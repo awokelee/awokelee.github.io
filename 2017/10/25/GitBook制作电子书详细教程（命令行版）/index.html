@@ -4,9 +4,9 @@
 <p>除此之外，还可以利用 Git 命令管理电子书版本。如果你是 GitHub 的重度使用者，还可以把你的 GitBook 帐户和 GitHub 帐户关联起来，这样不论在任何一方修改了内容，都可以互相同步。</p>
 <p>一、安装 Node.js</p>
 <p>由于 GitBook 是基于 Node.js 开发的，所以依赖 Node.js 环境。如果您的系统中还未安装 Node.js，请点击下面的链接，根据你所使用的系统下载对应的版本。如果已安装则略过本步骤。</p>
-<p>Node.js 下载页面：<a href="https://nodejs.org/en/download/stable/" target="_blank" rel="external">https://nodejs.org/en/download/stable/</a></p>
+<p>Node.js 下载页面：<a href="https://nodejs.org/en/download/stable/" target="_blank" rel="noopener">https://nodejs.org/en/download/stable/</a></p>
 <p>Windows 版和 Mac 版的 Node.js 都是常规的安装包，连续下一步安装即可。Lunix 版可以参照官方文档通过 yum、apt-get 之类的工具安装，也可以通过源码包安装，如下所示：</p>
-<p>$ wget <a href="https://nodejs.org/dist/v5.4.1/node-v5.4.1.tar.gz" target="_blank" rel="external">https://nodejs.org/dist/v5.4.1/node-v5.4.1.tar.gz</a><br>$ tar zxvf node-v5.4.1.tar.gz<br>$ cd node-v5.4.1<br>$ ./configure<br>$ make<br>$ make install<br>二、安装 GitBook</p>
+<p>$ wget <a href="https://nodejs.org/dist/v5.4.1/node-v5.4.1.tar.gz" target="_blank" rel="noopener">https://nodejs.org/dist/v5.4.1/node-v5.4.1.tar.gz</a><br>$ tar zxvf node-v5.4.1.tar.gz<br>$ cd node-v5.4.1<br>$ ./configure<br>$ make<br>$ make install<br>二、安装 GitBook</p>
 <p>打开“命令提示符”（Mac 系统打开“终端”）输入以下命令安装 GitBook：</p>
 <p>$ npm install gitbook-cli -g<br>由于网络的原因，安装的时间可能会较长一些，请耐心等待直到安装完成。安装完成后可以输入以下命令，以查看 GitBook 版本的方式检查是否安装成功：</p>
 <p>$ gitbook -V<br>三、创建电子书项目</p>
@@ -45,7 +45,7 @@
 <p>五、预览电子书内容</p>
 <p>电子书内容编写完毕后可以使用浏览器预览一下。先输入下面的命令据 .md 文件生成 HTML 文档：</p>
 <p>$ gitbook build<br>生成完毕后，会在电子书项目目录中出现一个名为“_book”的文件夹。进入该文件夹，直接用浏览器打开“index.html”，或先输入下面的命令：</p>
-<p>$ gitbook serve<br>然后在浏览器中输入“<a href="http://localhost:4000”即可预览电子书内容，预览完毕后按" target="_blank" rel="external">http://localhost:4000”即可预览电子书内容，预览完毕后按</a> Ctrl + C 结束。</p>
+<p>$ gitbook serve<br>然后在浏览器中输入“<a href="http://localhost:4000”即可预览电子书内容，预览完毕后按" target="_blank" rel="noopener">http://localhost:4000”即可预览电子书内容，预览完毕后按</a> Ctrl + C 结束。</p>
 <p>六、生成电子书文件</p>
 <p>确定电子书没有问题后，可以通过输入以下命令生成 mobi 电子书：</p>
 <p>$ gitbook mobi ./ ./MyFirstBook.mobi<br>如果出现以下错误提示，说明您还未安装 Calibre。由于 GitBook 生成 mobi 格式电子书依赖 Calibre 的 ebook-convert，所以请先点击这里下载安装 Calibre。</p>
@@ -55,13 +55,13 @@
 <p>以上所有的步骤都是在本地进行的，如果需要实现电子书的版本管理，或者把电子书发布到网络上，还可以通过 Git 命令将本地的项目托管到 GitBook.com 上。</p>
 <p>1、注册 GitHub.com 账号</p>
 <p>首先进入 GitBook.com 注册一个账号，并新建一个项目。在“Setting（设置）”页面获取到“Git URL（Git 链接）”，链接的样子如下所示：</p>
-<p><a href="https://git.gitbook.com/kindlefere/myfirstbook.git" target="_blank" rel="external">https://git.gitbook.com/kindlefere/myfirstbook.git</a><br>2、安装 Git 软件</p>
+<p><a href="https://git.gitbook.com/kindlefere/myfirstbook.git" target="_blank" rel="noopener">https://git.gitbook.com/kindlefere/myfirstbook.git</a><br>2、安装 Git 软件</p>
 <p>在开始下面的步骤之前请先确保您的系统中已经安装了 Git。一般 Mac 和 Lunix 自带 Git 功能，可以在终端运行 git –version 查看 Git 版本。Windows 一般不会自带 Git 功能，请点击这里下载先安装。</p>
 <p>在安装 Windows 版的 Git 时，会看到“Use Git from Git Bash only”和“Use Git from the Windows Command prompt”两个选项。前者指的在程序自带的独立终端中使用 Git。后者是指可以通过系统自带的“命令提示符”使用 Git 命令。可以根据自己的喜好选择，个人推荐使用后者。</p>
 <p>3、上传已有的电子书项目</p>
 <p>在本地新建一个文件夹，并通过 Git 命令把刚才新建的远程项目抓取到本地，如下所示：</p>
-<p>$ mkdir MyFirstBook-Git<br>$ cd MyFirstBook-Git<br>$ git init<br>$ git pull <a href="https://git.gitbook.com/kindlefere/myfirstbook.git" target="_blank" rel="external">https://git.gitbook.com/kindlefere/myfirstbook.git</a><br>然后把本地项目“MyFirstBook”中的所有内容拷贝到刚才新建的文件夹中，如上面的“MyFirstBook-Git”。然后使用 Git 命令把本地的项目上传到远程，如下所示：</p>
-<p>$ git add -A<br>$ git commit -m “提交说明”<br>$ git remote add gitbook <a href="https://git.gitbook.com/kindlefere/myfirstbook.git" target="_blank" rel="external">https://git.gitbook.com/kindlefere/myfirstbook.git</a><br>$ git push -u gitbook master<br>期间需要输入你的 GitBook 注册邮箱和密码。今后修改内容后只需要输入以下 Git 命令即可：</p>
+<p>$ mkdir MyFirstBook-Git<br>$ cd MyFirstBook-Git<br>$ git init<br>$ git pull <a href="https://git.gitbook.com/kindlefere/myfirstbook.git" target="_blank" rel="noopener">https://git.gitbook.com/kindlefere/myfirstbook.git</a><br>然后把本地项目“MyFirstBook”中的所有内容拷贝到刚才新建的文件夹中，如上面的“MyFirstBook-Git”。然后使用 Git 命令把本地的项目上传到远程，如下所示：</p>
+<p>$ git add -A<br>$ git commit -m “提交说明”<br>$ git remote add gitbook <a href="https://git.gitbook.com/kindlefere/myfirstbook.git" target="_blank" rel="noopener">https://git.gitbook.com/kindlefere/myfirstbook.git</a><br>$ git push -u gitbook master<br>期间需要输入你的 GitBook 注册邮箱和密码。今后修改内容后只需要输入以下 Git 命令即可：</p>
 <p>$ git add [修改的文件]<br>$ git commit -m “提交说明”<br>$ git push -u gitbook master<br>八、把项目关联到 GitHub 帐户</p>
 <p>如果你喜欢使用 GitHub 管理项目。还可以把您的 GitBook 帐户和 GitHub 帐户关联起来，这样两者的修改内容就可以互相同步了。</p>
 <p>1、关联 GitBook 和 GitHub 帐户</p>
